@@ -22,6 +22,7 @@ import { RequestService } from './utils/request.service';
     RequestService,
     {
       provide: APP_GUARD,
+      scope: Scope.REQUEST,
       useClass: AuthGuard,
     },
     {

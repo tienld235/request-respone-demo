@@ -10,4 +10,8 @@ export class AppService {
     this.logger.log('getHello: Hello userId: ', userId);
     return 'Hello World!';
   }
+
+  postExample(): string {
+    return 'post success';
+  }
 }

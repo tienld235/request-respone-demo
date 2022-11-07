@@ -6,15 +6,22 @@ import {
   Post,
   UseGuards,
   UseInterceptors,
+  UsePipes,
 } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CreateExampleDto } from './dto/create-example.dto';
 import { AuthGuard } from './guards/auth.guard';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { FreezePipe } from './pipes/freeze.pipe';
+import { ValidationPipe } from './pipes/validation.pipe';
+import { RequestService } from './utils/request.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly requestService: RequestService,
+  ) {}
 
   @Get()
   // @UseGuards(AuthGuard)
@@ -24,9 +31,9 @@ export class AppController {
   }
 
   @Post()
-  // Expect: throw an error
-  examplePost(@Body(new FreezePipe()) body: any) {
-    body.test = 32;
+  @UsePipes(ValidationPipe)
+  postExample(@Body() body: CreateExampleDto) {
+    this.appService.postExample();
   }
 
   @Get('error')

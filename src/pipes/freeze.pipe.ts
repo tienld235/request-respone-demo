@@ -10,6 +10,7 @@ export class FreezePipe implements PipeTransform {
   private readonly logger = new Logger(FreezePipe.name);
   transform(value: any, metadata: ArgumentMetadata) {
     this.logger.log('FreezePipe running...');
+    this.logger.debug(value.body);
     Object.freeze(value);
     return value;
   }
