@@ -33,7 +33,7 @@ export class AppController {
   @Post()
   @UsePipes(ValidationPipe)
   postExample(@Body() body: CreateExampleDto) {
-    this.appService.postExample();
+    return this.appService.postExample();
   }
 
   @Get('error')
