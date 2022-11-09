@@ -13,6 +13,6 @@ async function bootstrap() {
   // app.useGlobalGuards(new AuthGuard());
   // app.useGlobalPipes(new FreezePipe());
   // app.useGlobalFilters(new HttpExceptionFilter());
-  await app.listen(12345);
+  await app.listen(3000);
 }
 bootstrap();

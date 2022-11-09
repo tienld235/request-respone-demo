@@ -14,6 +14,7 @@ export class ValidationPipe implements PipeTransform<any> {
   private readonly logger = new Logger(ValidationPipe.name);
   constructor(private readonly requestService: RequestService) {}
   async transform(value: any, { metatype }: ArgumentMetadata) {
+    this.logger.log(ValidationPipe.name);
     value.userId = this.requestService.getUserId();
 
     if (!metatype || !this.toValidate(metatype)) {

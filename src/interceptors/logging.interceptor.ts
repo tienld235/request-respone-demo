@@ -27,7 +27,7 @@ export class LoggingInterceptor implements NestInterceptor {
       } invoked...`,
     );
 
-    this.logger.debug('userId:', this.requestService.getUserId());
+    this.logger.debug(`userId: ${this.requestService.getUserId()}`);
 
     const now = Date.now();
 
@@ -43,7 +43,7 @@ export class LoggingInterceptor implements NestInterceptor {
           }ms`,
         );
 
-        this.logger.debug('Response:', res);
+        this.logger.debug(`Response:${res}`);
       }),
     );
   }

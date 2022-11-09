@@ -7,7 +7,7 @@ export class AppService {
   constructor(private readonly requestService: RequestService) {}
   getHello(): string {
     const userId = this.requestService.getUserId();
-    this.logger.log('getHello: Hello userId: ', userId);
+    this.logger.log(`getHello: Hello userId:  ${userId}`);
     return 'Hello World!';
   }
 
