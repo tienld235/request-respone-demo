@@ -12,6 +12,7 @@ export class AppService {
   }
 
   postExample(): string {
+    this.logger.log(`This is router handler`);
     return 'post success';
   }
 }
